@@ -8,7 +8,6 @@ import {
   TabValue,
 } from "@fluentui/react-components";
 import "./Welcome.css";
-import { EditCode } from "./EditCode";
 import { app } from "@microsoft/teams-js";
 import { AzureFunctions } from "./AzureFunctions";
 import { Graph } from "./Graph";
@@ -53,8 +52,8 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
       <div className="narrow page-padding">
         <Image src="hello.png" />
         <h1 className="center">Congratulations{userName ? ", " + userName : ""}!</h1>
-        {hubName && <p className="center">Your app is running in {hubName}</p>}
-        <p className="center">Your app is running in your {friendlyEnvironmentName}</p>
+        {hubName && <p className="center">This app is running in {hubName}</p>}
+        <p className="center">This app is running in {friendlyEnvironmentName}</p>
 
         <div className="tabList">
           <TabList selectedValue={selectedValue} onTabSelect={onTabSelect}>
@@ -71,7 +70,6 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
           <div>
             {selectedValue === "local" && (
               <div>
-                <EditCode showFunction={showFunction} />
                 <CurrentUser userName={userName} />
                 <Graph />
                 {showFunction && <AzureFunctions />}
